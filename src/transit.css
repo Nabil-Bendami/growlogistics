@@ -1,0 +1,192 @@
+/* Transit reference: coral gradient, organic maritime photograph, Poppins.
+   Original artwork: HTML Design, CC BY 3.0. Attribution in footer and README. */
+:root {
+  font-family: 'Poppins', sans-serif;
+  --navy: var(--deep-navy);
+  --navy-2: var(--deep-navy);
+  --accent: var(--cobalt);
+  --accent-secondary: var(--cobalt);
+  --cream: var(--cream-white);
+  --muted: var(--text-muted);
+}
+body { color: var(--deep-navy); }
+button, input, select, textarea { font-family: inherit; }
+h1, h2, h3, .logo-copy b, .quality-title b, .quality-band strong,
+.mini-kpis strong, .analytics-kpis strong, .step-number, .mock-logo,
+.section-head h2, .product-copy h3, .feature-card h3, .dashboard-copy h2,
+.analytics-top h3, .steps h3, .contact h2, .form-head h3, .success h3 {
+  font-family: 'Poppins', sans-serif;
+}
+section[id] { scroll-margin-top: 30px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--deep-navy);
+  outline-offset: 5px;
+}
+.transit-hero {
+  position: relative;
+  height: 59.56vw;
+  background: var(--cobalt) url('/assets/transit-banner.png') center top / 100% auto no-repeat;
+  color: var(--cream-white);
+  isolation: isolate;
+}
+.transit-header {
+  position: absolute;
+  z-index: 5;
+  inset: .47vw 7.05vw auto 3.65vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.logo { gap: 1.1vw; }
+.ship-mark { width: 5.95vw; height: 5.95vw; color: var(--deep-navy); flex-shrink: 0; }
+.transit-header .logo-copy b { font-size: 3.35vw; font-weight: 600; letter-spacing: -.06em; line-height: 1; }
+.transit-header .logo-copy small { font-size: .69vw; letter-spacing: .33em; margin-top: .6vw; }
+.transit-tools { display: flex; align-items: center; gap: 2.4vw; padding-top: .58vw; }
+.transit-tools a, .transit-tools button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  width: 1.7vw;
+  height: 2.8vw;
+  color: var(--cream-white);
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.transit-tools svg { width: 1.8vw; height: 1.8vw; }
+.transit-tools .transit-menu { display: flex; flex-direction: column; justify-content: center; gap: .58vw; width: 3.05vw; margin-left: 1.2vw; }
+.transit-menu span { width: 100%; height: .27vw; background: currentColor; border-radius: 10px; }
+.transit-menu span:nth-child(2) { width: 58%; align-self: flex-end; }
+.transit-tools a:hover, .transit-tools button:hover { color: var(--deep-navy); }
+.transit-copy { position: absolute; top: 14.9vw; left: 3.65vw; width: 33vw; }
+.transit-copy h1 { margin: 0; letter-spacing: 0; font-weight: 700; }
+.transit-copy h1 span { display: block; }
+.transit-lead { font-size: 6.27vw; line-height: 1.3; margin-bottom: 1.4vw; }
+.transit-title { color: var(--deep-navy); font-size: 3.76vw; line-height: 1.4; }
+.transit-end { font-size: 3.45vw; line-height: 1.4; margin-top: .55vw; }
+.transit-copy p { width: 24.9vw; font-size: 1.1vw; line-height: 1.48; font-weight: 300; margin: 2.3vw 0 0; min-height: 10.7vw; color: var(--cream-white); }
+.slide-copy { animation: transit-enter .3s ease; }
+.transit-discover { display: inline-flex; align-items: center; gap: .75vw; margin-top: 1.75vw; font-size: .92vw; font-weight: 600; color: var(--deep-navy); }
+.transit-discover svg { width: 1.3vw; height: 1.3vw; transition: transform .2s; }
+.transit-discover:hover svg { transform: translateX(5px); }
+.transit-dots { display: flex; gap: .45vw; margin-top: 2.05vw; margin-left: 1.55vw; }
+.transit-dots button { position: relative; border: 0; padding: 0; width: 1.34vw; height: 1.34vw; border-radius: 50%; background: var(--deep-navy); cursor: pointer; }
+.transit-dots button::after { content: ''; position: absolute; inset: -6px -3px; }
+.transit-dots button.active { background: var(--cream-white); }
+.navigation-dialog { padding: 0; border: 0; color: var(--deep-navy); background: var(--cream-white); width: min(680px, calc(100% - 32px)); max-height: calc(100dvh - 40px); border-radius: 4px; }
+.navigation-dialog::backdrop { background: color-mix(in srgb, var(--deep-navy) 85%, transparent); backdrop-filter: blur(8px); }
+.navigation-dialog:not([open]) { display: none; }
+body:has(.navigation-dialog[open]) { overflow: hidden; }
+.navigation-inner { padding: 55px; }
+.dialog-close { position: absolute; right: 20px; top: 20px; background: none; border: 0; cursor: pointer; padding: 8px; }
+.dialog-kicker { color: var(--cobalt); font-size: 11px; letter-spacing: 3px; }
+.navigation-inner h2 { font-size: 30px; line-height: 1.3; margin: 15px 0 32px; }
+.navigation-inner nav { display: flex; flex-direction: column; }
+.navigation-inner nav a { display: flex; align-items: center; gap: 15px; padding: 20px 0; border-top: 1px solid var(--pale-sky); font-size: 21px; }
+.navigation-inner nav a>small { color: var(--cobalt); font-size: 10px; }
+.navigation-inner nav a>svg { margin-left: auto; flex-shrink: 0; }
+.navigation-inner nav a:hover { color: var(--cobalt); }
+.navigation-inner nav a span small { display: block; color: var(--text-muted); font-size: 10px; margin-top: 8px; }
+.site-search { display: flex; gap: 12px; align-items: center; border-bottom: 2px solid var(--cobalt); margin-bottom: 28px; }
+.site-search svg { color: var(--cobalt); width: 20px; flex-shrink: 0; }
+.site-search input { min-width: 0; width: 100%; background: none; border: 0; padding: 15px 0; font-size: 16px; }
+.transit-about { padding: 85px 0; background: var(--cream-white); }
+.about-grid { width: min(960px, calc(100% - 48px)); display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: center; }
+.about-grid h2 { font-size: 34px; line-height: 1.25; font-weight: 700; letter-spacing: -1px; }
+.about-grid h2 em { font-style: normal; color: var(--cobalt); }
+.about-grid p { color: var(--text-muted); font-size: 13px; line-height: 1.75; }
+.about-grid img { display: block; width: 100%; height: auto; }
+.about-grid .btn { margin-top: 10px; }
+.btn { border-radius: 30px; font-weight: 500; }
+.btn-primary { background: linear-gradient(110deg,var(--cobalt),var(--cobalt)); box-shadow: none; }
+.btn-primary:hover { background: var(--cobalt); }
+.eyebrow { color: var(--cobalt); font-size: 10px; letter-spacing: 2px; }
+.section-head h2 { font-size: clamp(32px, 3.3vw, 46px); font-weight: 700; letter-spacing: -1.7px; }
+.section-head p { font-size: 14px; }
+.solutions { background: var(--cream-white); }
+.product-panel { background: var(--cream-white); border-radius: 0; }
+.product-copy h3 { font-size: 39px; letter-spacing: -1px; }
+.product-switch button { border-radius: 4px; transition: color .2s, border-color .2s, box-shadow .2s; }
+.product-copy { min-width: 0; }
+.features { background: var(--cream-white); }
+.feature-grid { border-color: var(--pale-sky); }
+.feature-card { background: var(--cream-white); border-color: var(--pale-sky); }
+.feature-card h3 { font-weight: 600; }
+.feature-card:nth-child(even) .icon-box, .icon-box { background: var(--pale-sky); color: var(--cobalt); border-radius: 50%; }
+.feature-card:hover { background: var(--cream-white); }
+.dashboard-section { background: linear-gradient(95deg,color-mix(in srgb, var(--deep-navy) 94%, transparent),color-mix(in srgb, var(--deep-navy) 81%, transparent)),url('/assets/transit-banner.png') center 55% / cover; }
+.dashboard-copy h2 { font-size: 44px; }
+.dashboard-copy h2 em, .eyebrow.light { color: var(--cream-white); }
+.dashboard-copy>p, .dashboard-points small { color: var(--pale-sky); }
+.dashboard-points>div>span { color: var(--cream-white); background: color-mix(in srgb, var(--cream-white) 11%, transparent); }
+.analytics-card { box-shadow: 0 20px 40px color-mix(in srgb, var(--deep-navy) 19%, transparent); border-radius: 6px; }
+.analytics-card::before { pointer-events: none; }
+.workflow { background: var(--cream-white); }
+.steps h3 { font-weight: 600; }
+.step-icon, .steps article:nth-child(even) .step-icon { border-radius: 50%; color: var(--cobalt); }
+.quality-band { background: var(--deep-navy); border-radius: 0; }
+.quality-band strong, .quality-title>svg { color: var(--cream-white); }
+.quality-band div>span, .quality-title small { color: var(--pale-sky); }
+.contact { background: linear-gradient(110deg,var(--cobalt),var(--cobalt)); }
+.contact::before { background: none; }
+.contact h2 { font-size: 44px; letter-spacing: -1.7px; }
+.contact-form { border-radius: 6px; box-shadow: 0 20px 50px color-mix(in srgb, var(--cobalt) 19%, transparent); }
+.contact-form label { font-size: 11px; }
+.contact-form input, .contact-form select { font-size: 12px; }
+.contact-form .privacy { font-size: 10px; text-align: center; }
+footer { background: var(--cream-white); color: var(--text-muted); padding-top: 55px; }
+footer .logo { gap: 12px; color: var(--deep-navy); }
+footer .ship-mark { width: 50px; height: 50px; }
+footer .logo-copy b { color: var(--deep-navy); font-size: 27px; }
+footer .logo-copy small { font-size: 8px; }
+.footer-main b { color: var(--deep-navy); }
+.footer-main a:hover { color: var(--cobalt); }
+.footer-bottom { border-color: var(--pale-sky); }
+.footer-bottom a { text-decoration: underline; text-underline-offset: 3px; }
+@keyframes transit-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) and (min-width: 641px) {
+  .transit-hero { height: 68vw; }
+  .transit-copy { top: 15vw; }
+  .transit-copy p { width: 27vw; font-size: 1.5vw; min-height: 16vw; }
+  .transit-discover { font-size: 1.3vw; }
+  .transit-dots button { width: 1.8vw; height: 1.8vw; }
+  .transit-tools a, .transit-tools button { width: 30px; height: 38px; }
+  .transit-tools svg { width: 22px; height: 22px; }
+  .about-grid { gap: 35px; }
+}
+@media (max-width: 640px) {
+  .transit-hero { height: auto; min-height: 880px; padding: 125px 24px 330px; background-image: url('/assets/transit-banner.png'),linear-gradient(110deg,var(--cobalt),var(--cobalt)); background-position: center bottom,center; background-size: auto 360px,cover; }
+  .transit-header { inset: 15px 22px auto; align-items: center; }
+  .transit-header .logo { gap: 10px; }
+  .ship-mark { width: 48px; height: 48px; }
+  .transit-header .logo-copy b { font-size: 29px; }
+  .transit-header .logo-copy small { font-size: 7px; margin-top: 6px; }
+  .transit-tools { gap: 10px; padding: 0; }
+  .transit-tools a, .transit-tools button { width: 30px; height: 44px; }
+  .transit-tools svg { width: 20px; height: 20px; }
+  .transit-tools .transit-menu { width: 29px; gap: 6px; margin-left: 3px; }
+  .transit-menu span { height: 3px; }
+  .transit-copy { position: relative; top: auto; left: auto; width: 100%; }
+  .transit-lead { font-size: 68px; line-height: 1.12; margin-bottom: 15px; }
+  .transit-title { font-size: 40px; line-height: 1.25; }
+  .transit-end { font-size: 37px; line-height: 1.25; margin-top: 6px; }
+  .transit-copy p { width: 100%; max-width: 355px; font-size: 14px; line-height: 1.65; min-height: 140px; margin: 24px 0 0; }
+  .transit-discover { font-size: 12px; gap: 10px; margin-top: 18px; }
+  .transit-discover svg { width: 17px; height: 17px; }
+  .transit-dots { margin: 25px 0 0 5px; gap: 12px; }
+  .transit-dots button { width: 16px; height: 16px; }
+  .navigation-inner { padding: 50px 25px 30px; }
+  .navigation-inner h2 { font-size: 26px; }
+  .navigation-inner nav a { font-size: 18px; }
+  .transit-about { padding: 55px 0; }
+  .about-grid { display: flex; flex-direction: column; gap: 25px; }
+  .about-grid img { max-width: 370px; }
+  .section-head h2 { font-size: 31px; }
+  .dashboard-copy h2, .contact h2 { font-size: 35px; }
+  .mock-main { min-width: 0; }
+  .quality-band { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

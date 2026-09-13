@@ -1,0 +1,124 @@
+/* Brand palette supplied by the user. All components share these five colors. */
+:root {
+  --cobalt: #2457FF;
+  --deep-navy: #111C44;
+  --cream-white: #F8F1E4;
+  --pale-sky: #D8E3FF;
+  --sand-gray: #B7AD9E;
+  --text-muted: color-mix(in srgb, var(--deep-navy) 72%, var(--sand-gray));
+  --navy: var(--deep-navy);
+  --navy-2: var(--deep-navy);
+  --accent: var(--cobalt);
+  --accent-secondary: var(--deep-navy);
+  --cream: var(--cream-white);
+  --muted: var(--text-muted);
+  --line: color-mix(in srgb, var(--sand-gray) 40%, transparent);
+}
+body { background: var(--cream-white); color: var(--deep-navy); }
+::selection { background: var(--cobalt); color: var(--cream-white); }
+.transit-hero { background: var(--cobalt); overflow: hidden; }
+.hero-artwork { position: absolute; top: 0; left: 0; width: 100%; height: auto; z-index: -1; display: block; }
+.transit-header, .transit-tools a, .transit-tools button { color: var(--cream-white); }
+.transit-header .ship-mark { color: var(--cream-white); }
+.transit-title { color: var(--pale-sky); }
+.transit-lead, .transit-end, .transit-copy p { color: var(--cream-white); }
+.transit-discover { color: var(--cream-white); }
+.transit-discover:hover, .transit-tools a:hover, .transit-tools button:hover { color: var(--pale-sky); }
+.transit-dots button { background: var(--deep-navy); box-shadow: 0 0 0 1px var(--pale-sky); }
+.transit-dots button.active { background: var(--cream-white); }
+.transit-header :focus-visible, .transit-copy :focus-visible { outline-color: var(--cream-white); }
+.navigation-dialog { background: var(--cream-white); color: var(--deep-navy); }
+.dialog-close { color: var(--deep-navy); }
+.navigation-inner nav a { border-color: var(--line); }
+.transit-about, .features, .workflow, footer { background: var(--cream-white); }
+.btn-primary { background: var(--cobalt); color: var(--cream-white); }
+.btn-primary:hover { background: var(--deep-navy); color: var(--cream-white); }
+.eyebrow, .about-grid h2 em { color: var(--cobalt); }
+.solutions { background: var(--pale-sky); }
+.product-panel, .product-switch button { background: var(--cream-white); }
+.product-switch button { border-color: var(--sand-gray); color: var(--text-muted); }
+.product-switch button.active, .product-switch button.active.green { color: var(--cobalt); border-color: var(--cobalt); box-shadow: 0 8px 20px #111c4410; }
+.product-switch button.active.green { color: var(--deep-navy); border-color: var(--deep-navy); }
+.product-visual, .mock-main { background: color-mix(in srgb, var(--pale-sky) 45%, var(--cream-white)); }
+.mock-sidebar { background: var(--deep-navy); }
+.mock-logo, .theme-green .mock-logo { background: var(--cobalt); color: var(--cream-white); }
+.mock-sidebar span { color: var(--sand-gray); }
+.mock-sidebar span.active, .theme-green .mock-sidebar span.active { color: var(--pale-sky); background: #2457ff30; border-color: var(--cobalt); }
+.mini-kpis div, .chart-card, .mock-bottom { background: var(--cream-white); border-color: var(--line); }
+.mini-kpis small, .analytics-kpis small { color: var(--cobalt); }
+.mini-kpis span, .mock-top small, .chart-title span, .mock-list small { color: var(--text-muted); }
+.bars i { background: var(--cobalt); }
+.theme-green .bars i { background: var(--deep-navy); }
+.donut { background: conic-gradient(var(--cobalt) 0 48%, var(--deep-navy) 48% 69%, var(--sand-gray) 69% 82%, var(--pale-sky) 82%); }
+.donut::after { background: var(--cream-white); }
+.feature-grid, .feature-card { border-color: var(--line); }
+.feature-card { background: var(--cream-white); }
+.feature-card:hover { background: var(--pale-sky); }
+.feature-num { color: var(--text-muted); }
+.feature-card:nth-child(even) .icon-box, .icon-box { color: var(--cobalt); background: var(--pale-sky); }
+.feature-card>a { color: var(--deep-navy); border-color: var(--sand-gray); }
+.feature-card:hover>a { background: var(--cobalt); color: var(--cream-white); border-color: var(--cobalt); }
+.dashboard-section { background: var(--deep-navy); }
+.dashboard-copy h2 { color: var(--cream-white); }
+.dashboard-copy h2 em { color: var(--pale-sky); }
+.dashboard-points>div>span { background: var(--cobalt); color: var(--cream-white); }
+.analytics-card { background: var(--pale-sky); border: 1px solid #d8e3ff33; }
+.analytics-kpis div, .line-chart, .status-list { background: var(--cream-white); border-color: var(--line); }
+.analytics-kpis span, .analytics-top small, .axis { color: var(--text-muted); }
+.periods { background: #111c440d; }
+.periods button { color: var(--text-muted); }
+.periods button.active { background: var(--cobalt); color: var(--cream-white); }
+.grid-lines i { border-color: #b7ad9e55; }
+.status-list progress { appearance: none; background: var(--pale-sky); overflow: hidden; }
+.status-list progress::-webkit-progress-bar { background: var(--pale-sky); border-radius: 9px; }
+.status-list progress::-webkit-progress-value { background: var(--status-color); border-radius: 9px; }
+.status-list progress::-moz-progress-bar { background: var(--status-color); border-radius: 9px; }
+.step-icon, .steps article:nth-child(even) .step-icon { color: var(--cobalt); background: var(--pale-sky); border-color: var(--pale-sky); }
+.step-number { color: var(--sand-gray); opacity: .5; }
+.quality-band { background: var(--deep-navy); }
+.quality-band strong, .quality-title>svg { color: var(--pale-sky); }
+.contact { background: var(--cobalt); }
+.contact-shape { border-color: #d8e3ff1a; }
+.contact-form { background: var(--cream-white); color: var(--deep-navy); }
+.contact-form label, .contact-form .privacy { color: var(--text-muted); }
+.contact-form input, .contact-form select { background: var(--cream-white); border-color: var(--sand-gray); color: var(--deep-navy); }
+.contact-form input::placeholder { color: var(--text-muted); opacity: .8; }
+.contact-form input:focus, .contact-form select:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--pale-sky); }
+.form-head>span { background: var(--pale-sky); color: var(--cobalt); }
+.form-head small, .contact-note small, .contact-inner>div>p { color: var(--pale-sky); }
+.form-head small { color: var(--text-muted); }
+.contact-note>svg { background: #d8e3ff22; }
+.contact-form .btn-primary { background: var(--deep-navy); }
+.contact-form .btn-primary:hover { background: var(--cobalt); }
+.success svg { color: var(--cobalt); }
+.footer-bottom { border-color: var(--line); }
+.footer-main p, .footer-main a, .footer-bottom { color: var(--text-muted); }
+.footer-main .logo { color: var(--deep-navy); }
+
+/* The scroll narrative uses the same palette, including map and state graphics. */
+.logistics-journey { --journey-ink: var(--deep-navy); --journey-muted: var(--text-muted); --journey-accent: var(--cobalt); background: var(--cream-white); }
+.journey-scene { background: var(--cream-white); border-color: var(--sand-gray); }
+.journey-map-badge, .journey-map-stat { background: #f8f1e4ef; border-color: #b7ad9e70; color: var(--deep-navy); }
+.journey-map-stat>b, .journey-rail button, .journey-owner small, .journey-bottom { color: var(--text-muted); }
+.journey-map-stat>i, .journey-rail::before { background: var(--sand-gray); }
+.journey-rail-dot { border-color: var(--sand-gray); background: var(--cream-white); }
+.journey-owner>span, .journey-card-icon { background: var(--pale-sky); color: var(--cobalt); }
+.journey-overlay { background: #f8f1e4f5; border-color: var(--cream-white); box-shadow: 0 20px 65px #111c4420; }
+.journey-card-heading, .journey-item, .journey-card-foot, .journey-picking-row { border-color: var(--line); }
+.journey-card-heading small, .journey-order-client small, .journey-item small, .journey-total>span,
+.journey-message, .journey-message time, .journey-picking-row small, .journey-complete>p,
+.journey-complete li, .journey-map-credit { color: var(--text-muted); }
+.journey-message { background: color-mix(in srgb, var(--sand-gray) 20%, var(--cream-white)); }
+.journey-message.is-client { background: var(--pale-sky); }
+.journey-total, .journey-order-client>span, .journey-delivery-note { background: var(--pale-sky); color: var(--deep-navy); }
+.journey-success-icon, .is-finance .journey-success-icon { background: var(--pale-sky); color: var(--cobalt); box-shadow: 0 0 0 9px #d8e3ff60; }
+.journey-status-pill, .journey-online { background: var(--pale-sky); color: var(--deep-navy); }
+.journey-controls button { background: var(--cream-white); border-color: var(--sand-gray); color: var(--deep-navy); }
+.journey-controls button:hover:not(:disabled) { background: var(--cobalt); color: var(--cream-white); }
+.journey-cta { box-shadow: 0 12px 24px #2457ff26; }
+.journey-map [fill="var(--sand-gray)"] { opacity: .45; }
+.journey-bottom>a { color: var(--cobalt); }
+@media (max-width: 640px) {
+  .transit-hero { background: var(--cobalt); }
+  .hero-artwork { top: auto; bottom: 0; left: 50%; width: 542px; height: 360px; max-width: none; transform: translateX(-50%); }
+}

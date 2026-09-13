@@ -1,0 +1,174 @@
+.feature-page { color: var(--deep-navy); background: var(--cream-white); }
+.feature-page-nav { display:flex; justify-content:space-between; align-items:center; gap:24px; padding-top:28px; padding-bottom:28px; border-bottom:1px solid var(--line); }
+.feature-page-nav>a:last-child,.feature-page-footer a { display:flex;align-items:center;gap:10px;font-size:14px; }
+.feature-page-brand {font-size:32px;font-weight:800;line-height:1.1;}
+.feature-page-brand span {display:block;font-size:10px;letter-spacing:3px;margin-top:5px;}
+.feature-page-hero {padding-top:85px;padding-bottom:80px;}
+.feature-page-hero h1 {font-size:clamp(42px,6vw,84px);line-height:1.08;letter-spacing:-.045em;max-width:950px;margin:25px 0;}
+.feature-page-hero>p {font-size:clamp(17px,2vw,22px);line-height:1.75;max-width:820px;color:var(--text-muted);}
+.feature-page-audience {margin:24px 0 30px;font-size:14px;color:var(--text-muted);}
+.feature-page-flow {padding-bottom:90px;}
+.feature-flow-grid {display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:start;}
+.feature-step-list {list-style:none;padding:0;margin:0;}
+.feature-step-list li+li {margin-top:12px;}
+.feature-step-list button {display:flex;width:100%;text-align:left;gap:18px;padding:24px;border:1px solid var(--line);border-radius:14px;color:var(--deep-navy);background:transparent;cursor:pointer;align-items:flex-start;}
+.feature-step-list button.active {background:var(--pale-sky);border-color:var(--cobalt);}
+.feature-step-number {font-size:14px;color:var(--cobalt);padding-top:4px;font-weight:700;}
+.feature-step-list strong {display:block;font-size:19px;margin-bottom:10px;}
+.feature-step-list button>span:nth-child(2) {flex:1;}
+.feature-step-list button>span>span {font-size:14px;line-height:1.8;display:block;}
+.feature-step-list svg {flex-shrink:0;margin-top:5px;}
+.feature-preview {position:sticky;top:30px;border-radius:24px;background:var(--deep-navy);color:var(--cream-white);padding:36px;min-height:440px;}
+.feature-preview-top {display:flex;justify-content:space-between;gap:15px;align-items:center;}
+.feature-preview-top>span {font-weight:700;letter-spacing:2px;}.feature-preview-top small {font-size:11px;}
+.feature-preview-count {display:block;font-size:64px;line-height:1;margin:40px 0 25px;color:var(--pale-sky);}.feature-preview-count small {font-size:19px;}
+.feature-preview h3 {font-size:27px;line-height:1.3;margin-bottom:25px;}
+.feature-preview ul {list-style:none;padding:0;display:grid;gap:18px;}.feature-preview li {display:flex;gap:12px;align-items:center;font-size:15px;}.feature-preview li svg {flex-shrink:0;color:var(--pale-sky);}
+.feature-preview-progress {display:flex;gap:8px;margin:35px 0 20px;}.feature-preview-progress span {flex:1;height:4px;background:#ffffff30;border-radius:4px;}.feature-preview-progress .active {background:var(--pale-sky);}
+.feature-preview button {border:0;background:none;color:var(--cream-white);cursor:pointer;padding:8px 0;}
+.feature-outcome {background:var(--pale-sky);padding:55px 0;}.feature-outcome>.wrap {display:flex;gap:25px;align-items:center;}.feature-outcome h2 {font-size:clamp(22px,2.5vw,32px);line-height:1.5;max-width:700px;}.feature-outcome svg,.feature-outcome .btn {flex-shrink:0;}.feature-outcome .btn {margin-left:auto;}
+.feature-related {padding-top:70px;padding-bottom:70px;}.feature-related h2 {font-size:30px;margin-bottom:25px;}.feature-related>div {display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}.feature-related a {padding:23px;border:1px solid var(--line);border-radius:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}.feature-related small {width:100%;color:var(--cobalt);}.feature-related a:hover {background:var(--pale-sky);}.feature-related a span {flex:1;}
+.feature-page-footer {display:flex;justify-content:space-between;gap:20px;background:transparent;padding-top:25px;padding-bottom:25px;border-top:1px solid var(--line);font-size:13px;}
+.feature-card {position:relative;}.feature-card>a::after {content:'';position:absolute;inset:0;}.feature-card:focus-within {outline:2px solid var(--cobalt);outline-offset:-2px;}
+@media(max-width:800px){.feature-flow-grid {grid-template-columns:1fr;gap:25px;}.feature-preview {position:static;}.feature-outcome>.wrap {flex-wrap:wrap;}.feature-outcome .btn {margin-left:0;}.feature-related>div {grid-template-columns:repeat(2,1fr);}.feature-page-hero {padding-top:50px;padding-bottom:50px;}}
+@media(max-width:480px){.feature-page-nav {gap:15px;}.feature-page-nav>a:last-child {font-size:11px;max-width:160px;}.feature-step-list button {padding:18px;gap:12px;}.feature-step-list button>svg {display:none;}.feature-preview {padding:25px;}.feature-related>div {grid-template-columns:1fr;}.feature-page-footer {flex-direction:column;}}
+
+/* ============================================================
+   Feature page choreography — opening, scroll, closing.
+   All of it is opt-in motion: reduced-motion users get the
+   finished layout immediately, and the page works without JS.
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* --- 1. OPENING ------------------------------------------
+     The page arrives as one piece, then the hero unveils
+     line by line on top of it. --- */
+  .feature-page-active .feature-page {
+    animation: feature-enter 620ms cubic-bezier(.16, 1, .3, 1) both;
+  }
+  .feature-page-active .feature-page-nav {
+    animation: feature-nav-drop 560ms 60ms cubic-bezier(.16, 1, .3, 1) both;
+  }
+  .feature-page-active .feature-page-hero > * {
+    opacity: 0; transform: translateY(26px);
+  }
+  .feature-page-active.feature-open .feature-page-hero > * {
+    animation: feature-unveil 760ms cubic-bezier(.16, 1, .3, 1) both;
+    animation-delay: calc(180ms + var(--open-index, 0) * 95ms);
+  }
+  /* The title gets a clip reveal on top of the shared unveil. */
+  .feature-page-active.feature-open .feature-page-hero h1 {
+    animation: feature-title-unveil 880ms cubic-bezier(.16, 1, .3, 1) both;
+    animation-delay: 275ms;
+  }
+  /* A soft wash of brand colour sweeps behind the hero on entry. */
+  .feature-page-hero { position: relative; }
+  .feature-page-hero::before {
+    content: ''; position: absolute; z-index: -1;
+    inset: -10% -30% auto -30%; height: 420px;
+    background: radial-gradient(60% 100% at 22% 0%, #2457ff1f, transparent 72%);
+    opacity: 0; pointer-events: none;
+    translate: 0 var(--feature-drift, 0px);
+  }
+  .feature-page-active.feature-open .feature-page-hero::before {
+    animation: feature-wash 1100ms 140ms ease-out both;
+  }
+
+  /* --- 2. SCROLL -------------------------------------------
+     One entrance per block, with a stagger inside lists. --- */
+  .feature-page [data-reveal] {
+    opacity: 0; transform: translateY(30px);
+    transition:
+      opacity 680ms cubic-bezier(.16, 1, .3, 1) calc(var(--reveal-index, 0) * 90ms),
+      transform 680ms cubic-bezier(.16, 1, .3, 1) calc(var(--reveal-index, 0) * 90ms);
+  }
+  .feature-page [data-reveal].is-revealed { opacity: 1; transform: none; }
+
+  /* The step cards slide in from the reading edge instead. */
+  .feature-step-list li[data-reveal] { transform: translateX(-34px); }
+  .feature-step-list li[data-reveal].is-revealed { transform: none; }
+
+  /* The sticky preview rises with a touch of depth. */
+  .feature-preview[data-reveal] { transform: translateY(40px) scale(.97); }
+  .feature-preview[data-reveal].is-revealed { transform: none; }
+
+  /* The outcome band wipes open from the left. */
+  .feature-outcome[data-reveal] { clip-path: inset(0 100% 0 0); transform: none; }
+  .feature-outcome[data-reveal].is-revealed { clip-path: inset(0); transition: clip-path 900ms cubic-bezier(.16, 1, .3, 1), opacity 500ms ease; }
+
+  /* --- Step interactions ----------------------------------- */
+  .feature-step-list button {
+    transition: background-color 280ms, border-color 280ms, transform 280ms cubic-bezier(.16, 1, .3, 1), box-shadow 280ms;
+  }
+  .feature-step-list button:hover { transform: translateX(6px); box-shadow: 0 10px 26px #111c4412; }
+  .feature-step-list button.active { transform: translateX(9px); box-shadow: 0 12px 30px #2457ff1f; }
+  .feature-step-list button svg { transition: transform 280ms cubic-bezier(.16, 1, .3, 1); }
+  .feature-step-list button.active svg { transform: translateX(5px); }
+  .feature-step-number { transition: transform 280ms; }
+  .feature-step-list button.active .feature-step-number { transform: scale(1.22); }
+
+  /* The preview swaps its content with a slide, not a jump. */
+  .feature-preview-content { animation: feature-step-swap 520ms cubic-bezier(.16, 1, .3, 1) both; }
+  .feature-preview-content li {
+    animation: feature-check-in 460ms cubic-bezier(.16, 1, .3, 1) both;
+    animation-delay: calc(160ms + var(--check-index, 0) * 80ms);
+  }
+  .feature-preview-progress span { transition: background-color 420ms ease, transform 420ms cubic-bezier(.16, 1, .3, 1); transform-origin: left; }
+  .feature-preview-progress .active { transform: scaleY(1.6); }
+
+  .feature-related a { transition: background-color 250ms, transform 300ms cubic-bezier(.16, 1, .3, 1), box-shadow 300ms; }
+  .feature-related a:hover { transform: translateY(-5px); box-shadow: 0 14px 32px #111c4414; }
+  .feature-related a svg { transition: transform 260ms; }
+  .feature-related a:hover svg { transform: translateX(5px); }
+
+  /* --- 3. CLOSING ------------------------------------------
+     Plays before the browser leaves for the next document. --- */
+  .feature-closing .feature-page {
+    animation: feature-exit 360ms cubic-bezier(.4, 0, 1, 1) both;
+  }
+  .feature-closing .feature-page [data-reveal] { transition: none; }
+}
+
+@keyframes feature-enter {
+  from { opacity: 0; transform: translateY(22px) scale(.988); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes feature-exit {
+  from { opacity: 1; transform: none; filter: blur(0); }
+  to   { opacity: 0; transform: translateY(-16px) scale(.985); filter: blur(3px); }
+}
+@keyframes feature-nav-drop {
+  from { opacity: 0; transform: translateY(-22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes feature-unveil {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes feature-title-unveil {
+  from { opacity: 0; transform: translateY(38px); clip-path: inset(0 0 100% 0); }
+  to   { opacity: 1; transform: none; clip-path: inset(-20% 0 -20% 0); }
+}
+@keyframes feature-wash {
+  from { opacity: 0; transform: scale(.9); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes feature-step-swap {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes feature-check-in {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Cross-document transition tuned for this page (index.html opts in). */
+::view-transition-old(root) { animation: feature-exit 300ms cubic-bezier(.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: feature-enter 480ms cubic-bezier(.16, 1, .3, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-page, .feature-page-hero > *, .feature-page [data-reveal], .feature-preview-content, .feature-preview-content li {
+    opacity: 1 !important; transform: none !important; clip-path: none !important; animation: none !important;
+  }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

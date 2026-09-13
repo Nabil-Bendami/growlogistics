@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+.env.local
+
+# Original video; the website uses the compressed tms-demo.mp4.
+public/assets/vedio/0913 (1).mp4

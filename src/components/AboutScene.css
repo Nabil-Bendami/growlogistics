@@ -1,0 +1,60 @@
+/* The 3D scene reuses the circular cobalt frame of the original photo. */
+.about-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 17px;
+  background: var(--cobalt);
+  box-shadow: -23px 9px 0 -7px var(--deep-navy), 0 0 0 5px var(--pale-sky);
+}
+.about-scene-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(58% 58% at 50% 42%, #ffffff 0%, #f4f7ff 46%, var(--pale-sky) 100%);
+  touch-action: pan-y;
+}
+.about-scene-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: about-scene-in 900ms cubic-bezier(.16, 1, .3, 1) both;
+}
+/* A soft inner shade keeps the sphere reading as a lens, not a flat disc. */
+.about-scene-canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: inset 0 -30px 60px -30px #2457ff33, inset 0 18px 40px -22px #ffffffee;
+}
+.about-scene-fallback {
+  position: absolute;
+  inset: 17px;
+  width: auto;
+  height: auto;
+  max-width: none;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: scale(1.24) translateX(-2.5%);
+}
+.state-live .about-scene-fallback { display: none; }
+
+@keyframes about-scene-in {
+  from { opacity: 0; transform: scale(.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-scene-canvas canvas { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .about-scene { max-width: 370px; padding: 13px; }
+  .about-scene-fallback { inset: 13px; }
+}
