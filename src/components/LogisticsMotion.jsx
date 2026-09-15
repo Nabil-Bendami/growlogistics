@@ -88,7 +88,7 @@ export default function LogisticsMotion() {
   }
   return <section ref={root} className="logistics-motion" id="logistique-en-mouvement" aria-label="Grow Logistics : du stock à la livraison">
     <div className="logistics-motion-viewport">
-      <div className="motion-section-top"><span>GROW LOGISTICS <i/> DU STOCK À LA LIVRAISON</span><a href="#parcours">Voir le parcours <ArrowRight size={16}/></a></div>
+      <div className="motion-section-top"><span>GROW LOGISTICS <i/> DU STOCK À LA LIVRAISON</span><a href="/parcours">Voir le parcours <ArrowRight size={16}/></a></div>
       <div ref={track} className="logistics-motion-track">
         {SCENES.map((scene, index) => <article className="logistics-motion-scene" key={scene.tag}>
           <div className="motion-scene-copy"><p className="motion-scene-kicker">{scene.tag}</p>
@@ -99,7 +99,7 @@ export default function LogisticsMotion() {
           <MotionSculpture index={index}/>
         </article>)}
       </div>
-      <div className="motion-section-bottom"><span><ArrowDown size={15}/>{pinned ? 'Faites défiler. La logistique prend vie.' : 'Du stock à la livraison, étape par étape.'}</span>{pinned && <nav aria-label="Scènes de la présentation">{['Vue d’ensemble', 'WMS', 'TMS'].map((label, index) => <button key={label} aria-label={`Afficher ${label}`} onClick={() => selectScene(index)} aria-current={active === index ? 'step' : undefined}><span>{String(index + 1).padStart(2, '0')}</span>{label}</button>)}</nav>}<a href="#solutions">Explorer les solutions <ArrowRight size={15}/></a></div>
+      <div className="motion-section-bottom"><span><ArrowDown size={15}/>{pinned ? 'Faites défiler. La logistique prend vie.' : 'Du stock à la livraison, étape par étape.'}</span>{pinned && <nav aria-label="Scènes de la présentation">{['Vue d’ensemble', 'WMS', 'TMS'].map((label, index) => <button key={label} aria-label={`Afficher ${label}`} onClick={() => selectScene(index)} aria-current={active === index ? 'step' : undefined}><span>{String(index + 1).padStart(2, '0')}</span>{label}</button>)}</nav>}<a href="/solutions">Explorer les solutions <ArrowRight size={15}/></a></div>
     </div>
   </section>
 }

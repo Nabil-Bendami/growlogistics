@@ -13,7 +13,7 @@ export default function FeaturePage({ feature }) {
     document.querySelector('meta[name="description"]')?.setAttribute('content', feature.intro)
   }, [feature])
   return <div className="feature-page">
-    <header className="feature-page-nav wrap"><a href="/" className="feature-page-brand">Grow <span>LOGISTICS</span></a><a href="/#fonctionnalites"><ArrowLeft size={17}/> Toutes les fonctionnalités</a></header>
+    <header className="feature-page-nav wrap"><a href="/" className="feature-page-brand">Grow <span>LOGISTICS</span></a><a href="/fonctionnalites"><ArrowLeft size={17}/> Toutes les fonctionnalités</a></header>
     <main>
       <section className="feature-page-hero wrap">
         <div className="eyebrow" style={{'--open-index':0}}><span/> {feature.product} · Fonctionnalité</div>
@@ -39,7 +39,7 @@ export default function FeaturePage({ feature }) {
           </div>
         </div>
       </section>
-      <section className="feature-outcome" data-reveal><div className="wrap"><Check size={34}/><div><div className="eyebrow">À l’arrivée</div><h2>{feature.result}</h2></div><a href="/#contact" className="btn btn-primary">Parlons de votre projet <ArrowRight size={18}/></a></div></section>
+      <section className="feature-outcome" data-reveal><div className="wrap"><Check size={34}/><div><div className="eyebrow">À l’arrivée</div><h2>{feature.result}</h2></div><a href="/contact" className="btn btn-primary">Parlons de votre projet <ArrowRight size={18}/></a></div></section>
       <nav className="wrap feature-related" aria-label="Autres fonctionnalités"><h2 data-reveal>Découvrez aussi</h2><div>{featureDetails.filter(item => item.slug !== feature.slug).map((item, index) => <a key={item.slug} href={`/fonctionnalites/${item.slug}`} data-reveal style={{'--reveal-index':index}}><small>{item.product}</small><span>{item.title}</span><ArrowRight size={18}/></a>)}</div></nav>
     </main>
     <footer className="feature-page-footer wrap" data-reveal><span>© 2026 Grow Logistics</span><a href="/">Retour à l’accueil <ArrowRight size={16}/></a></footer>

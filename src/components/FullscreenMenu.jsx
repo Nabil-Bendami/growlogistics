@@ -3,12 +3,12 @@ import { ArrowDownRight, ArrowUpRight, Boxes, Home, Mail, Route, Workflow, X, Za
 import './FullscreenMenu.css'
 
 const pages = [
-  { href: '#top', title: 'Accueil', description: 'Une logistique plus simple.', icon: Home },
-  { href: '#parcours', title: 'Le parcours d’un colis', description: 'Vivez chaque étape en action.', icon: Route },
-  { href: '#solutions', title: 'Nos solutions', description: 'Transport TMS & Entrepôt WMS.', icon: Boxes },
-  { href: '#fonctionnalites', title: 'Fonctionnalités', description: 'Les outils qui font la différence.', icon: Zap },
-  { href: '#workflow', title: 'Comment ça marche', description: 'Du premier clic à la livraison.', icon: Workflow },
-  { href: '#contact', title: 'Votre projet', description: 'Construisons la suite ensemble.', icon: Mail },
+  { href: '/', title: 'Accueil', description: 'Une logistique plus simple.', icon: Home },
+  { href: '/parcours', title: 'Le parcours d’un colis', description: 'Vivez chaque étape en action.', icon: Route },
+  { href: '/solutions', title: 'Nos solutions', description: 'Transport TMS & Entrepôt WMS.', icon: Boxes },
+  { href: '/fonctionnalites', title: 'Fonctionnalités', description: 'Les outils qui font la différence.', icon: Zap },
+  { href: '/comment-ca-marche', title: 'Comment ça marche', description: 'Du premier clic à la livraison.', icon: Workflow },
+  { href: '/contact', title: 'Votre projet', description: 'Construisons la suite ensemble.', icon: Mail },
 ]
 
 export default function FullscreenMenu({ onDismiss, origin, trigger }) {
@@ -35,22 +35,14 @@ export default function FullscreenMenu({ onDismiss, origin, trigger }) {
       const href = destination.current
       onDismiss()
       if (href) {
-        // Wait for the modal to release focus and the document scroll lock.
-        window.requestAnimationFrame(() => {
-          const section = document.querySelector(href)
-          if (!section) return
-          window.location.hash = href
-          section.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' })
-          section.setAttribute('tabindex', '-1')
-          section.focus({ preventScroll: true })
-          section.addEventListener('blur', () => section.removeAttribute('tabindex'), { once: true })
-        })
+        window.location.assign(href)
       }
     }, reduceMotion ? 0 : 500)
     return () => window.clearTimeout(timer)
   }, [closing, onDismiss])
 
   const close = (event, href = null) => {
+    if (href && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button > 0)) return
     event.preventDefault()
     if (closing) return
     destination.current = href
@@ -68,7 +60,7 @@ export default function FullscreenMenu({ onDismiss, origin, trigger }) {
     <div className="fullscreen-menu-orbit" aria-hidden="true" />
     <div className="fullscreen-menu-shell">
       <div className="fullscreen-menu-top">
-        <a href="#top" className="fullscreen-menu-brand" onClick={e => close(e, '#top')} aria-label="Grow Logistics — accueil">Grow<span>LOGISTICS</span></a>
+        <a href="/" className="fullscreen-menu-brand" onClick={e => close(e, '/')} aria-label="Grow Logistics — accueil">Grow<span>LOGISTICS</span></a>
         <span className="fullscreen-menu-caption">DEUX SOLUTIONS. UN MÊME CAP.</span>
         <button type="button" className="fullscreen-menu-close" onClick={close} autoFocus aria-label="Fermer le menu"><span>Fermer</span><X aria-hidden="true" /></button>
       </div>
@@ -90,7 +82,7 @@ export default function FullscreenMenu({ onDismiss, origin, trigger }) {
 
       <div className="fullscreen-menu-bottom">
         <p>Moins de friction.<br /><strong>Plus de possibilités.</strong></p>
-        <a href="#contact" className="fullscreen-menu-cta" onClick={e => close(e, '#contact')}>Parlons de votre projet <ArrowUpRight aria-hidden="true" /></a>
+        <a href="/contact" className="fullscreen-menu-cta" onClick={e => close(e, '/contact')}>Parlons de votre projet <ArrowUpRight aria-hidden="true" /></a>
         <span className="fullscreen-menu-signature">GROW LOGISTICS / TMS & WMS</span>
       </div>
     </div>

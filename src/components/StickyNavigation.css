@@ -1,0 +1,30 @@
+.sticky-navigation {
+  position: fixed;
+  z-index: 100;
+  inset: 0 0 auto;
+  background: color-mix(in srgb, var(--cream-white) 96%, transparent);
+  color: var(--deep-navy);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 6px 24px #111c440b;
+  backdrop-filter: blur(16px);
+  transform: translateY(-110%);
+  visibility: hidden;
+  transition: transform .3s ease, visibility .3s;
+}
+.sticky-navigation.is-visible { transform: translateY(0); visibility: visible; }
+.sticky-navigation-inner { width: min(1440px, calc(100% - 64px)); margin: auto; min-height: 72px; display: flex; align-items: center; gap: 28px; }
+.sticky-navigation-brand { display: flex; flex-direction: column; font-size: 27px; font-weight: 700; letter-spacing: -1.4px; line-height: 1; }
+.sticky-navigation-brand span { font-size: 7px; letter-spacing: 2.4px; margin-top: 5px; }
+.sticky-navigation-links { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 2vw, 32px); flex: 1; }
+.sticky-navigation-links a { font-size: 12px; font-weight: 500; padding-block: 25px; white-space: nowrap; border-bottom: 2px solid transparent; }
+.sticky-navigation-links a:hover, .sticky-navigation-links a[aria-current] { color: var(--cobalt); border-bottom-color: var(--cobalt); }
+.sticky-navigation-contact { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 12px 18px; border-radius: 999px; background: var(--cobalt); color: var(--cream-white); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.sticky-navigation-contact:hover { background: var(--deep-navy); }
+.sticky-navigation-menu { display: none; }
+@media (max-width: 1050px) {
+  .sticky-navigation-inner { width: calc(100% - 32px); gap: 12px; min-height: 68px; }
+  .sticky-navigation-links { display: none; }
+  .sticky-navigation-contact { margin-left: auto; }
+  .sticky-navigation-menu { display: grid; place-items: center; width: 44px; height: 44px; background: transparent; border: 1px solid var(--line); border-radius: 50%; color: var(--deep-navy); cursor: pointer; }
+}
+@media (prefers-reduced-motion: reduce) { .sticky-navigation { transition: none; } }

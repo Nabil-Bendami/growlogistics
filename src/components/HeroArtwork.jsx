@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Pause, Play } from 'lucide-react'
-import { heroVideos } from './heroVideos.js'
+import { heroVideo } from './heroVideos.js'
 
 export default function HeroArtwork() {
   const videoRef = useRef(null)
-  const [active, setActive] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [paused, setPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
 
@@ -12,14 +11,13 @@ export default function HeroArtwork() {
     const video = videoRef.current
     if (paused) video.pause()
     else video.play().catch(() => setPlaying(false))
-  }, [active, paused])
+  }, [paused])
 
   return <>
     <div className="hero-video-background" aria-hidden="true">
-      <video ref={videoRef} src={heroVideos[active]} muted playsInline preload="auto"
-        poster="/assets/vedio/hero-poster.jpg"
+      <video ref={videoRef} src={heroVideo} muted loop playsInline preload="auto"
+        poster="/assets/vedio/hero-0915-poster.jpg"
         onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}
-        onEnded={() => setActive(index => (index + 1) % heroVideos.length)}
         onError={() => setPlaying(false)} />
       <div className="hero-video-shade" />
     </div>

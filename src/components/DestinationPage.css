@@ -1,0 +1,21 @@
+.destination-masthead { position: relative; min-height: 155px; background: var(--cobalt); }
+.destination-hero { padding-block: 40px 80px; }
+.destination-hero nav { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 65px; }
+.destination-hero nav a:hover { color: var(--cobalt); }
+.destination-kicker { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 20px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.destination-kicker > span:first-child { color: var(--cobalt); }
+.destination-hero h1 { max-width: 1000px; margin: 35px 0 25px; font-size: clamp(42px, 6.5vw, 88px); font-weight: 600; letter-spacing: -.06em; line-height: 1.05; }
+.destination-hero > p { max-width: 650px; font-size: 18px; line-height: 1.8; color: var(--text-muted); }
+.destination-next { padding-block: 60px; display: grid; gap: 18px; }
+.destination-next > span { font-size: 11px; letter-spacing: .12em; color: var(--text-muted); }
+.destination-next a { display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: clamp(22px, 3vw, 38px); letter-spacing: -.03em; }
+.destination-next a:hover { color: var(--cobalt); }
+.destination-next svg { flex-shrink: 0; }
+@media (max-width: 640px) {
+  .destination-masthead { min-height: 100px; }
+  .destination-hero { padding-block: 28px 45px; }
+  .destination-hero nav { margin-bottom: 40px; }
+  .destination-kicker { font-size: 9px; }
+  .destination-hero > p { font-size: 15px; }
+  .destination-next { padding-block: 40px; }
+}

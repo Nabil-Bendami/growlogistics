@@ -1,0 +1,71 @@
+.about-editorial {
+  --about-line: color-mix(in srgb, var(--sand-gray) 36%, transparent);
+  background: color-mix(in srgb, var(--cream-white) 38%, white);
+  color: var(--deep-navy);
+  padding-inline: clamp(20px, 2.8vw, 64px);
+  scroll-margin-top: 90px;
+}
+.about-editorial-frame {
+  max-width: 1800px;
+  margin-inline: auto;
+  border-inline: 1px solid var(--about-line);
+  background-image: linear-gradient(to right, transparent calc(33.333% - .5px), var(--about-line) 33.333%, transparent calc(33.333% + .5px), transparent calc(66.666% - .5px), var(--about-line) 66.666%, transparent calc(66.666% + .5px));
+}
+.about-editorial-top, .about-editorial-bottom { display: flex; justify-content: space-between; gap: 20px; padding: 36px 20px; font-size: 11px; font-weight: 600; }
+.about-editorial-top { min-height: 165px; align-items: flex-start; }
+.about-editorial-top > span:last-child { color: var(--text-muted); text-align: right; }
+.about-editorial-top b { color: var(--deep-navy); }
+.about-editorial-layout { display: grid; grid-template-columns: 1fr 2fr; }
+.about-editorial-intro { padding: 0 clamp(20px, 3vw, 60px) 70px 0; }
+.about-editorial-sticky { position: sticky; top: 115px; }
+.about-editorial-label { display: flex; align-items: center; gap: 15px; font-size: 12px; font-weight: 600; }
+.about-editorial-mark { display: flex; gap: 2px; flex-shrink: 0; }
+.about-editorial-mark i { display: block; width: 7px; height: 15px; background: var(--cobalt); clip-path: polygon(0 0, 60% 0, 100% 50%, 60% 100%, 0 100%); }
+.about-editorial h2 { margin: 34px 0; font-size: clamp(40px, 4.7vw, 86px); line-height: .99; letter-spacing: -.065em; font-weight: 600; }
+.about-editorial-intro p { max-width: 330px; margin: 0; font-size: clamp(15px, 1.2vw, 19px); line-height: 1.6; color: var(--text-muted); }
+.about-editorial-link { display: inline-flex; align-items: center; gap: 24px; margin-top: 36px; padding-bottom: 10px; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 600; transition: color .2s; }
+.about-editorial-link:hover { color: var(--cobalt); }
+.about-editorial-link:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 6px; }
+.about-editorial-article { border-top: 1px solid var(--about-line); }
+.about-editorial-article header { padding: 36px 28px; }
+.about-editorial-index { font-size: 14px; font-weight: 600; }
+.about-editorial-index span { color: var(--text-muted); font-size: 11px; font-weight: 400; }
+.about-editorial h3 { margin: 14px 0 0; font-size: clamp(30px, 3.5vw, 64px); line-height: 1.08; letter-spacing: -.055em; font-weight: 600; }
+.about-editorial-image { overflow: hidden; aspect-ratio: 1.85; background: var(--pale-sky); clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%, 0 14%); }
+.about-editorial-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+@media (hover: hover) { .about-editorial-article:hover img { transform: scale(1.035); } }
+.about-editorial-detail { padding: 28px 28px 64px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 35px; }
+.about-editorial-detail p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-muted); }
+.about-editorial-detail ul { list-style: none; padding: 0; margin: 0; }
+.about-editorial-detail li { padding: 10px 0; border-bottom: 1px solid var(--about-line); font-size: 12px; }
+.about-editorial-detail li:first-child { padding-top: 0; }
+.about-editorial-bottom { border-top: 1px solid var(--about-line); }
+@media (max-width: 760px) {
+  .about-editorial-frame { background: none; }
+  .about-editorial-top { min-height: 100px; padding: 24px 14px; font-size: 9px; }
+  .about-editorial-layout { grid-template-columns: 1fr; }
+  .about-editorial-intro { padding: 20px 20px 45px; }
+  .about-editorial-sticky { position: static; }
+  .about-editorial h2 { font-size: clamp(48px, 10vw, 72px); margin-block: 25px; }
+  .about-editorial-intro p { max-width: 450px; }
+  .about-editorial-article header { padding: 28px 20px; }
+  .about-editorial-detail { padding: 24px 20px 40px; grid-template-columns: 1fr; gap: 24px; }
+  .about-editorial-bottom { padding: 24px 14px; font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-editorial-image img, .about-editorial-link { transition: none; }
+  .about-editorial-article:hover img { transform: none; }
+}
+
+/* Each discipline card plays its own muted clip over the still poster. */
+.discipline-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease, opacity .5s ease;
+}
+.about-editorial-article:hover .discipline-video { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) {
+  .discipline-video { transition: none; }
+}

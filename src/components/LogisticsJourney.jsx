@@ -142,7 +142,7 @@ export default function LogisticsJourney() {
               <p>{stage.description}</p>
               </div>
             </div>
-            <a className="btn btn-primary journey-cta" href="#solutions">Découvrir les solutions <ArrowRight size={17}/></a>
+            <a className="btn btn-primary journey-cta" href="/solutions">Découvrir les solutions <ArrowRight size={17}/></a>
             <div className="journey-controls">
               <span className="journey-step-count">0{active+1}<span> / 07</span></span>
               <button aria-label="Étape précédente" disabled={active===0} onClick={()=>selectStage(active-1)}><ArrowLeft size={18}/></button>
@@ -150,7 +150,7 @@ export default function LogisticsJourney() {
             </div>
           </div>
         </div>
-        <div className="journey-bottom"><span><ArrowDown size={13}/>{pinned?'Défilez pour faire avancer le parcours':'Sélectionnez une étape pour explorer le parcours'}</span><small>Scénario illustratif · Données de démonstration</small><a href="#solutions">Passer le parcours <ArrowRight size={13}/></a></div>
+        <div className="journey-bottom"><span><ArrowDown size={13}/>{pinned?'Défilez pour faire avancer le parcours':'Sélectionnez une étape pour explorer le parcours'}</span><small>Scénario illustratif · Données de démonstration</small><a href="/solutions">Passer le parcours <ArrowRight size={13}/></a></div>
       </div>
     </div>
   </section>
