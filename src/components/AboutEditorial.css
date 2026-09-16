@@ -69,3 +69,7 @@
 @media (prefers-reduced-motion: reduce) {
   .discipline-video { transition: none; }
 }
+
+.discipline-player { position: relative; width: 100%; height: 100%; }
+.discipline-video-toggle { position: absolute; bottom: 14px; right: 14px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 14px; border: 1px solid #ffffff80; border-radius: 30px; background: #111c44e6; color: var(--cream-white); font: inherit; font-size: 12px; cursor: pointer; }
+.discipline-video-toggle:focus-visible { outline-color: white; outline-offset: 3px; }

@@ -22,9 +22,18 @@
 .sticky-navigation-contact:hover { background: var(--deep-navy); }
 .sticky-navigation-menu { display: none; }
 @media (max-width: 1050px) {
-  .sticky-navigation-inner { width: calc(100% - 32px); gap: 12px; min-height: 68px; }
-  .sticky-navigation-links { display: none; }
+  .sticky-navigation-inner { width: calc(100% - 32px); gap: 0 8px; min-height: 68px; display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto; padding-top: 12px; }
+  .sticky-navigation-links { display: flex; order: 4; flex: 0 0 100%; min-width: 0; justify-content: flex-start; gap: 22px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--sand-gray) transparent; padding: 0 3px; scroll-padding-inline: 12px; }
+  .sticky-navigation-links a { flex-shrink: 0; min-height: 48px; display: flex; align-items: center; padding-block: 12px; font-size: 12px; }
+  .sticky-navigation-links a:focus-visible { outline-offset: -3px; }
   .sticky-navigation-contact { margin-left: auto; }
   .sticky-navigation-menu { display: grid; place-items: center; width: 44px; height: 44px; background: transparent; border: 1px solid var(--line); border-radius: 50%; color: var(--deep-navy); cursor: pointer; }
+  .sticky-navigation-links { grid-column: 1 / -1; }
+  .sticky-navigation .language-switch a { min-width: 28px; }
+  .sticky-navigation .sticky-navigation-contact { padding: 12px 10px; font-size: 11px; }
+}
+@media (max-width: 480px) {
+  .sticky-navigation-contact svg { display: none; }
+  .sticky-navigation-brand { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .sticky-navigation { transition: none; } }

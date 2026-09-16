@@ -30,3 +30,29 @@
 .motion-is-pinned .motion-section-top,.motion-is-pinned .motion-section-bottom {flex-shrink:0;}
 @media(max-width:900px){.logistics-motion-scene {grid-template-columns:1fr;gap:18px;padding:60px 7% 30px;min-height:0;}.motion-scene-copy h2 {font-size:clamp(28px,6vw,46px);margin-bottom:35px;}.motion-scene-description {font-size:22px;max-width:650px;}.motion-sculpture {width:min(100%,480px);justify-self:center;}.motion-section-top>span {font-size:8px;letter-spacing:1px;}.motion-section-top>a {font-size:10px;}.motion-section-bottom {flex-wrap:wrap;font-size:10px;}.logistics-motion-scene+.logistics-motion-scene {border-top:1px solid #fff9e818;}}
 @media(max-width:480px){.motion-scene-copy h2 {font-size:28px;letter-spacing:-1px;}.motion-scene-copy h2>span {padding:12px 14px;}.motion-scene-copy .motion-tag-bottom {margin-left:20px;}.motion-scene-description {font-size:20px;}.motion-scene-kicker {margin-bottom:25px;}.motion-section-top {flex-wrap:wrap;gap:12px;}.sculpture-ticket {font-size:9px;padding:10px 12px;}.motion-scene-words {font-size:10px;gap:12px;}}
+
+/* Keep the horizontal presentation below the persistent page navigation. */
+.motion-is-pinned .logistics-motion-viewport { height: calc(100svh - var(--motion-nav-height, 72px)); }
+@media (max-width: 900px) {
+  .logistics-motion:not(.motion-is-pinned) .logistics-motion-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #b6c3ce #0d1519; }
+  .logistics-motion:not(.motion-is-pinned) .logistics-motion-scene { flex: 0 0 100%; width: 100%; min-width: 0; scroll-snap-align: start; align-content: start; }
+  .logistics-motion-scene + .logistics-motion-scene { border-top: 0; }
+  .motion-is-pinned .logistics-motion-scene { display: flex; flex-direction: column; justify-content: space-between; gap: 8px; padding: 16px 6% 8px; }
+  .motion-is-pinned .motion-scene-copy { width: 100%; flex-shrink: 0; }
+  .motion-is-pinned .motion-scene-kicker { margin-bottom: 14px; font-size: 8px; }
+  .motion-is-pinned .motion-scene-copy h2 { font-size: clamp(23px, 5.8vw, 34px); margin-bottom: 18px; letter-spacing: -.8px; }
+  .motion-is-pinned .motion-scene-copy h2 > span { padding: 8px 13px; }
+  .motion-is-pinned .motion-scene-description { font-size: clamp(13px, 3.5vw, 18px); line-height: 1.5; letter-spacing: -.2px; margin-bottom: 12px; }
+  .motion-is-pinned .motion-scene-words { font-size: 9px; gap: 8px 12px; }
+  .motion-is-pinned .motion-sculpture { flex: 1 1 0; min-height: 140px; max-height: 310px; width: auto; height: auto; max-width: 100%; aspect-ratio: 1 / 1.06; align-self: center; }
+  .motion-is-pinned .motion-section-top { padding: 14px 0; gap: 8px; }
+  .motion-is-pinned .motion-section-top > span { font-size: 7px; letter-spacing: .7px; gap: 8px; }
+  .motion-is-pinned .motion-section-top > a { font-size: 9px; }
+  .motion-is-pinned .motion-section-bottom { padding: 10px 0; gap: 2px 12px; }
+  .motion-is-pinned .motion-section-bottom > span { display: none; }
+  .motion-section-bottom nav { gap: 14px; }
+  .motion-section-bottom button { min-height: 44px; }
+  .motion-is-pinned .motion-section-bottom > a { font-size: 9px; }
+  .motion-is-pinned .sculpture-ticket { font-size: 8px; padding: 8px 10px; gap: 6px; }
+  .motion-is-pinned .dome-label { font-size: 7px; letter-spacing: 2px; }
+}

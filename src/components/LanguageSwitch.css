@@ -1,0 +1,16 @@
+.language-switch { display: inline-flex; align-items: center; flex-shrink: 0; gap: 2px; border: 1px solid currentColor; border-radius: 999px; padding: 3px; }
+.language-switch a { display: grid; place-items: center; min-width: 36px; min-height: 36px; border-radius: 999px; font-size: 11px; font-weight: 600; line-height: 1; color: inherit; }
+.language-switch a[aria-current] { background: var(--deep-navy); color: var(--cream-white); }
+.language-switch a:hover { background: var(--pale-sky); color: var(--deep-navy); }
+.language-switch a:focus-visible { outline-offset: 2px; }
+.sticky-navigation-inner { gap: 16px; }
+@media (max-width: 1050px) {
+  .sticky-navigation-inner { gap: 0 8px; }
+  .sticky-navigation-contact { padding: 12px; gap: 6px; }
+}
+@media (max-width: 380px) {
+  .sticky-navigation-brand { font-size: 23px; }
+  .sticky-navigation-contact { font-size: 10px; padding-inline: 10px; }
+  .sticky-navigation-contact svg { display: none; }
+  .language-switch a { min-width: 30px; }
+}

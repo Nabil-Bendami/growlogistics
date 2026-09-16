@@ -185,3 +185,59 @@
 @media (prefers-reduced-motion: reduce) {
   .logistics-journey *, .logistics-journey *::before, .logistics-journey *::after { animation: none !important; transition: none !important; }
 }
+
+@media (max-width: 900px) {
+  .journey-controls { position: static; margin-top: 18px; align-self: flex-end; }
+  .journey-controls button { width: 44px; height: 44px; }
+}
+
+/* The same scroll-driven timeline on desktop and portrait phones. */
+.is-pinned .journey-pin { top: var(--journey-nav-height, 72px); height: calc(100svh - var(--journey-nav-height, 72px)); }
+@media (max-width: 900px) {
+  .logistics-journey.is-pinned { height: 650svh; }
+  .is-pinned .journey-pin { padding: 12px 0 8px; align-items: flex-start; }
+  .is-pinned .journey-container { width: calc(100% - 32px); }
+  .is-pinned .journey-heading { margin-bottom: 10px; }
+  .is-pinned .journey-heading .eyebrow { font-size: 8px; }
+  .is-pinned .journey-heading h2 { font-size: 22px; margin: 6px 0 0; letter-spacing: -.8px; }
+  .is-pinned .journey-heading > p { display: none; }
+  .is-pinned .journey-stage { gap: 10px; }
+  .is-pinned .journey-scene { height: clamp(180px, calc(100svh - 440px), 330px); }
+  .is-pinned .journey-rail { margin-top: 12px; }
+  .is-pinned .journey-rail button { font-size: 8px; gap: 6px; }
+  .is-pinned .journey-right { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; min-height: 0; padding: 0; }
+  .is-pinned .journey-story { grid-column: 1 / -1; min-height: 0; }
+  .is-pinned .journey-owner { gap: 8px; }
+  .is-pinned .journey-owner > span { width: 26px; height: 26px; border-radius: 8px; }
+  .is-pinned .journey-owner svg { width: 17px; height: 17px; }
+  .is-pinned .journey-owner > div { flex-direction: row; align-items: center; gap: 8px; }
+  .is-pinned .journey-owner b { font-size: 11px; }
+  .is-pinned .journey-owner small { font-size: 7px; letter-spacing: .5px; }
+  .is-pinned .journey-story h3 { font-size: 23px; margin: 8px 0 5px; letter-spacing: -.7px; }
+  .is-pinned .journey-story-content > p { font-size: 11px; line-height: 1.5; }
+  .is-pinned .journey-cta { margin: 0; padding: 10px 12px; font-size: 9px; justify-self: start; }
+  .is-pinned .journey-controls { position: static; margin: 0; gap: 6px; }
+  .is-pinned .journey-controls button { width: 36px; height: 36px; }
+  .is-pinned .journey-bottom { margin-top: 8px; gap: 5px; font-size: 8px; }
+  .is-pinned .journey-bottom > span { display: flex; font-size: 8px; }
+  .is-pinned .journey-bottom > small { display: none; }
+  .is-pinned .journey-overlay { width: 94%; padding: 12px; max-height: none; overflow: visible; scale: .8; transform-origin: 0 0; }
+  .is-pinned .has-overlay .journey-map-stat { display: none; }
+  .is-pinned .journey-card-heading { padding-bottom: 6px; gap: 6px; }
+  .is-pinned .journey-card-heading strong { font-size: 9px; }
+  .is-pinned .journey-card-icon { width: 24px; height: 24px; }
+  .is-pinned .journey-order-client { margin: 6px 0; }
+  .is-pinned .journey-order-client > span { width: 24px; height: 24px; }
+  .is-pinned .journey-item { padding: 5px 0; }
+  .is-pinned .journey-total { padding: 6px; margin-top: 3px; }
+  .is-pinned .journey-total > strong { font-size: 14px; }
+  .is-pinned .journey-picking-row { padding: 8px 0; }
+  .is-pinned .journey-success-icon { width: 32px; height: 32px; margin-bottom: 10px; }
+  .is-pinned .journey-success-icon svg { width: 22px; }
+  .is-pinned .journey-success-number { font-size: 21px; }
+  .is-pinned .journey-complete ul { margin-top: 8px; }
+  .is-pinned .journey-complete li { margin-top: 5px; font-size: 8px; }
+  .is-pinned .journey-map-badge { top: 8px; left: 8px; font-size: 8px; padding: 6px 9px; }
+  .is-pinned .journey-map-stat { font-size: 7px; padding: 5px 7px; left: 8px; max-width: calc(100% - 16px); }
+  .is-pinned .journey-map-stat b { font-size: 7px; }
+}

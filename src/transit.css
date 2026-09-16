@@ -190,3 +190,8 @@ footer .logo-copy small { font-size: 8px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+.contact-email-status { grid-column: 1 / -1; padding: 16px; border: 1px solid var(--line); border-radius: 12px; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.contact-email-status p { margin: 0 0 10px; }
+.contact-email-status a { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+.contact-email-status > a { display: inline-flex; align-items: center; gap: 8px; }

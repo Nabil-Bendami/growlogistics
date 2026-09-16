@@ -1,3 +1,4 @@
+import { t } from '../i18n/index.js'
 import { useEffect, useRef, useState } from 'react'
 import { Pause, Play } from 'lucide-react'
 import { heroVideo } from './heroVideos.js'
@@ -22,13 +23,13 @@ export default function HeroArtwork() {
       <div className="hero-video-shade" />
     </div>
     <button className="hero-video-toggle" type="button"
-      aria-label={playing ? 'Mettre la vidéo en pause' : 'Lire la vidéo de fond'}
+      aria-label={playing ? t("Mettre la vidéo en pause") : t("Lire la vidéo de fond")}
       onClick={() => {
         if (playing) setPaused(true)
         else { setPaused(false); videoRef.current?.play().catch(() => setPlaying(false)) }
       }}>
       {playing ? <Pause size={16}/> : <Play size={16}/>}
-      <span>{playing ? 'Pause' : 'Lecture'}</span>
+      <span>{playing ? 'Pause' : t("Lecture")}</span>
     </button>
   </>
 }

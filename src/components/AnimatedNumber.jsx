@@ -1,9 +1,10 @@
+import { locale } from '../i18n/index.js'
 import { useEffect, useRef, useState } from 'react'
 
 export default function AnimatedNumber({ value, decimals = 0, suffix = '' }) {
   const ref = useRef(null)
   const [display, setDisplay] = useState(value)
-  const formatted = number => new Intl.NumberFormat('fr-FR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(number) + suffix
+  const formatted = number => new Intl.NumberFormat(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(number) + suffix
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     let frame = 0

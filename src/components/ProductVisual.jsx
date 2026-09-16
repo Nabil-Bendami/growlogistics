@@ -1,3 +1,4 @@
+import { t, locale } from '../i18n/index.js'
 import { useEffect, useRef, useState } from 'react'
 import {
   Bell, Boxes, Building2, Calendar, ChevronDown, ChevronLeft, ClipboardList,
@@ -10,14 +11,14 @@ import {
 const tmsNav = [
   { icon: Home, label: 'Dashboards' },
   { icon: Calendar, label: 'Options', sub: true },
-  { icon: ShoppingCart, label: 'Produits', sub: true },
-  { icon: UserRound, label: 'Clients', sub: true },
-  { icon: FileText, label: 'Bons de livraison' },
-  { icon: Boxes, label: 'Préparation', sub: true },
-  { icon: Truck, label: 'Gestion de la flotte', sub: true },
-  { icon: Users, label: 'Utilisateurs', sub: true },
-  { icon: TriangleAlert, label: 'Anomalies' },
-  { icon: Settings, label: 'Paramétrage', sub: true },
+  { icon: ShoppingCart, label: t("Produits"), sub: true },
+  { icon: UserRound, label: t("Clients"), sub: true },
+  { icon: FileText, label: t("Bons de livraison") },
+  { icon: Boxes, label: t("Préparation"), sub: true },
+  { icon: Truck, label: t("Gestion de la flotte"), sub: true },
+  { icon: Users, label: t("Utilisateurs"), sub: true },
+  { icon: TriangleAlert, label: t("Anomalies") },
+  { icon: Settings, label: t("Paramétrage"), sub: true },
 ]
 
 const wmsNav = [
@@ -66,7 +67,7 @@ function Counter({ value, play }) {
     frame = requestAnimationFrame(step)
     return () => cancelAnimationFrame(frame)
   }, [value, play])
-  return <>{shown.toLocaleString('fr-FR').replace(/ | /g, ' ')}</>
+  return <>{shown.toLocaleString(locale).replace(/ | /g, ' ')}</>
 }
 
 function TmsScreen({ play }) {
@@ -82,7 +83,7 @@ function TmsScreen({ play }) {
 
     <div className="app-body">
       <header className="app-topbar">
-        <span className="app-topbar-search"><Search size={11}/> Rechercher une tournée…</span>
+        <span className="app-topbar-search"><Search size={11}/> {t("Rechercher une tournée…")}</span>
         <div className="app-topbar-tools">
           <i className="tool-alert"><TriangleAlert size={12}/></i>
           <i><Sun size={12}/></i>
@@ -93,12 +94,12 @@ function TmsScreen({ play }) {
 
       <div className="app-scroll">
         <div className="app-row-return">
-          <div><b>RET-1764086580</b><span className="pill-retour">RETOUR <i><FileText size={8}/>PDF</i></span></div>
+          <div><b>RET-1764086580</b><span className="pill-retour">{t("RETOUR")} <i><FileText size={8}/>PDF</i></span></div>
           <div className="app-row-client">LUXOR SA</div>
           <div className="app-row-coords">33.583766166866305, -7.623695666248583</div>
         </div>
 
-        <p className="app-map-label">Trajet sur la carte :</p>
+        <p className="app-map-label">{t("Trajet sur la carte :")}</p>
         <div className="app-map">
           <svg viewBox="0 0 520 210" className="map-canvas" aria-hidden="true">
             <rect width="520" height="210" fill="var(--map-land)"/>
@@ -132,9 +133,9 @@ function TmsScreen({ play }) {
         </div>
 
         <div className="app-metrics">
-          <div><span>Commandes</span><strong><Counter value={2846} play={play}/></strong><small>↗ 12,4 %</small></div>
-          <div><span>Livrées</span><strong><Counter value={1964} play={play}/></strong><small>↗ 8,1 %</small></div>
-          <div><span>Véhicules actifs</span><strong><Counter value={24} play={play}/></strong><small>en tournée</small></div>
+          <div><span>{t("Commandes")}</span><strong><Counter value={2846} play={play}/></strong><small>{t("↗ 12,4 %")}</small></div>
+          <div><span>{t("Livrées")}</span><strong><Counter value={1964} play={play}/></strong><small>{t("↗ 8,1 %")}</small></div>
+          <div><span>{t("Véhicules actifs")}</span><strong><Counter value={24} play={play}/></strong><small>{t("en tournée")}</small></div>
         </div>
       </div>
     </div>

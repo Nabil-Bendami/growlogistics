@@ -1,3 +1,4 @@
+import { t } from '../i18n/index.js'
 import { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { LocateFixed, RefreshCw } from 'lucide-react'
 import L from 'leaflet'
@@ -55,7 +56,7 @@ export default function JourneyMap({ ref }) {
         maxZoom: 18,
       })
       map.attributionControl.setPrefix(false)
-      L.control.zoom({ position: 'topright', zoomInTitle: 'Zoom avant', zoomOutTitle: 'Zoom arrière' }).addTo(map)
+      L.control.zoom({ position: 'topright', zoomInTitle: t("Zoom avant"), zoomOutTitle: t("Zoom arrière") }).addTo(map)
       const bounds = L.latLngBounds(points)
       const fit = () => map.fitBounds(bounds, { paddingTopLeft: [35, 75], paddingBottomRight: [45, 85], animate: false })
       fit()
@@ -90,9 +91,9 @@ export default function JourneyMap({ ref }) {
       L.polyline(points, { color: cobalt, opacity: .3, weight: 4, interactive: false }).addTo(map)
       const travelled = L.polyline([], { color: cobalt, weight: 5, interactive: false }).addTo(map)
       L.circleMarker(points[0], { radius: 7, color: cream, weight: 3, fillColor: navy, fillOpacity: 1, interactive: false })
-        .addTo(map).bindTooltip('Entrepôt · démo', { permanent: true, direction: 'top', offset: [0, -10], className: 'journey-place-label' })
+        .addTo(map).bindTooltip(t("Entrepôt · démo"), { permanent: true, direction: 'top', offset: [0, -10], className: 'journey-place-label' })
       L.circleMarker(points.at(-1), { radius: 7, color: cobalt, weight: 3, fillColor: cream, fillOpacity: 1, interactive: false })
-        .addTo(map).bindTooltip('Destinataire · démo', { permanent: true, direction: 'top', offset: [0, -10], className: 'journey-place-label' })
+        .addTo(map).bindTooltip(t("Destinataire · démo"), { permanent: true, direction: 'top', offset: [0, -10], className: 'journey-place-label' })
       const halo = L.circleMarker(points[0], { radius: 17, stroke: false, fillColor: cobalt, fillOpacity: .2, interactive: false }).addTo(map)
       const marker = L.circleMarker(points[0], { radius: 8, color: cream, weight: 3, fillColor: cobalt, fillOpacity: 1, interactive: false, className: 'journey-live-marker' }).addTo(map)
       const draw = value => {
@@ -119,11 +120,11 @@ export default function JourneyMap({ ref }) {
   }, [])
 
   return <div className="journey-real-map">
-    <div ref={container} className="journey-map" role="region" aria-label="Carte réelle de Casablanca. Itinéraire routier de démonstration, sans suivi GPS en direct." />
-    <button type="button" className="journey-map-reset" aria-label="Recentrer sur le parcours" title="Voir le parcours complet" onClick={() => instance.current?.fit()}><LocateFixed size={18} /></button>
+    <div ref={container} className="journey-map" role="region" aria-label={t("Carte réelle de Casablanca. Itinéraire routier de démonstration, sans suivi GPS en direct.")} />
+    <button type="button" className="journey-map-reset" aria-label={t("Recentrer sur le parcours")} title={t("Voir le parcours complet")} onClick={() => instance.current?.fit()}><LocateFixed size={18} /></button>
     {status !== 'ready' && <div className={`journey-map-loading ${status === 'error' ? 'is-error' : ''}`} role="status">
-      <span>{status === 'error' ? 'Fond de carte indisponible. Vérifiez votre connexion.' : 'Chargement de la carte…'}</span>
-      {status === 'error' && <button type="button" onClick={() => { setStatus('loading'); instance.current?.tiles.redraw() }}><RefreshCw size={13} /> Réessayer</button>}
+      <span>{status === 'error' ? t("Fond de carte indisponible. Vérifiez votre connexion.") : t("Chargement de la carte…")}</span>
+      {status === 'error' && <button type="button" onClick={() => { setStatus('loading'); instance.current?.tiles.redraw() }}><RefreshCw size={13} /> {t("Réessayer")}</button>}
     </div>}
   </div>
 }

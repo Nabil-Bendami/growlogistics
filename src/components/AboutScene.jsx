@@ -1,3 +1,4 @@
+import { t } from '../i18n/index.js'
 import { useEffect, useRef, useState } from 'react'
 
 /* Brand palette, mirrored from palette.css so the scene matches the page. */
@@ -300,8 +301,8 @@ export default function AboutScene() {
 
   return <div className={`about-scene state-${state}`}>
     <div className="about-scene-canvas" ref={mount} role="img"
-      aria-label="Animation : un globe filaire parcouru de routes lumineuses reliant les hubs logistiques."/>
+      aria-label={t("Animation : un globe filaire parcouru de routes lumineuses reliant les hubs logistiques.")}/>
     {state !== 'live' && <img className="about-scene-fallback" src="/assets/transit-about.png"
-      alt="Porte-conteneurs en mer" width="1116" height="1059" loading="lazy"/>}
+      alt={t("Porte-conteneurs en mer")} width="1116" height="1059" loading="lazy"/>}
   </div>
 }
